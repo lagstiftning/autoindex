@@ -1,4 +1,9 @@
-export default function(eleventyConfig) {
+export default async function(eleventyConfig) {
+  eleventyConfig.setUseGitIgnore(false)
+
+  const { EleventyHtmlBasePlugin } = await import("@11ty/eleventy");
+  eleventyConfig.addPlugin(EleventyHtmlBasePlugin)
+
   eleventyConfig.addCollection("sections", function(collection) {
     const posts = collection.getAll();
     const elements = posts.flatMap(post => post.data.elements)
@@ -19,9 +24,14 @@ export default function(eleventyConfig) {
 
       return {
         ...section,
-        revision, 
+        revision,
         elements,
       }
     })
   })
+
+  const pathPrefix = `/${process.env.LAW}/`;
+  return {
+    pathPrefix,
+  };
 }
