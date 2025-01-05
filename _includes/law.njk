@@ -1,30 +1,51 @@
+{% from "_includes/elements.njk" import document_heading, chapter_heading, group_heading, section_heading_link, paragraph_text %}
 
-<h1>
-  <span>
-    {{ name.en }}
-  </span>
-  <span>
-    Version {{ code }}, English Translation
-  </span>
-</h1>
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/tailwind.css" />
+    <title>lagstiftning</title>
+  </head>
 
-<table>
-  <tbody>
-    {% for element in elements %}
-      <tr>
-        <td>
-          {% if element.type == "section_heading" %}
-            <a href="{{ element.slug }}">
-              {{ element.text.sv }}
-            </a>
-          {% else %}
-            {{ element.text.sv }}
-          {% endif %}
-        </td>
-        <td>
-          {{ element.text.en }}
-        </td>
-      </tr>
-    {% endfor %}
-  </tbody>
-</table>
+  <body>
+
+    <h1>
+      <span>
+        {{ name.en }}
+      </span>
+      <span>
+        Version {{ code }}, English Translation
+      </span>
+    </h1>
+
+    <table>
+      <tbody>
+        {% for element in elements %}
+          <tr>
+
+            {% if element.type == "document_heading" %}
+              {{ document_heading(element, "left", "sv") }}
+              {{ document_heading(element, "right", "en") }}
+            {% elseif element.type == "chapter_heading" %}
+              {{ chapter_heading(element, "left", "sv") }}
+              {{ chapter_heading(element, "right", "en") }}
+            {% elseif element.type == "group_heading" %}
+              {{ group_heading(element, "left", "sv") }}
+              {{ group_heading(element, "right", "en") }}
+            {% elseif element.type == "section_heading" %}
+              {{ section_heading_link(element, "left", "sv") }}
+              {{ section_heading_link(element, "right", "en") }}
+            {% else %}
+              {{ paragraph_text(element, "left", "sv") }}
+              {{ paragraph_text(element, "right", "en") }}
+            {% endif %}
+
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  </body>
+</html>
