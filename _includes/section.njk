@@ -1,0 +1,26 @@
+<h1>
+  <span>
+    {{ section.text.en }}
+    of 
+    {{ section.revision.name.en }}
+  </span>
+  <span>
+    {{ section.revision.version }},
+    English Translation
+  </span>
+</h1>
+
+<table>
+  <tbody>
+    {% for element in section.elements %}
+      <tr>
+        <td>
+          {{ element.text.sv }}
+        </td>
+        <td>
+          {{ element.text.en }}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
