@@ -34,6 +34,10 @@ runs:
       shell: bash
       working-directory: ${{ github.action_path }}
 
+    - run: sed '/\*\.md/d' .gitignore
+      shell: bash
+      working-directory: ${{ github.action_path }}
+
     - run: yarn build
       shell: bash
       working-directory: ${{ github.action_path }}
