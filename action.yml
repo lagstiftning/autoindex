@@ -1,0 +1,49 @@
+name: "AutoIndex legal text"
+description: "Automatically convert legal text to web content"
+inputs:
+  github_token:
+    description: "The GitHub token to use for deployment."
+    required: true
+  law:
+    description: "The law to process"
+    required: true
+outputs: {}
+runs:
+  using: "composite"
+  steps:
+    - name: Set GitHub Path
+      run: echo "$GITHUB_ACTION_PATH" >> $GITHUB_PATH
+      shell: bash
+      env:
+        GITHUB_ACTION_PATH: ${{ github.action_path }}
+
+    - name: Copy .md files to GitHub Path
+      run: cp -r ./*.md $GITHUB_ACTION_PATH
+      shell: bash
+      env:
+        GITHUB_ACTION_PATH: ${{ github.action_path }}
+
+    - run: corepack enable
+      shell: bash
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version: "20.x"
+
+    - run: yarn install
+      shell: bash
+      working-directory: ${{ github.action_path }}
+
+    - run: yarn build
+      shell: bash
+      working-directory: ${{ github.action_path }}
+      env:
+        ELEVENTY_ENV: production
+        LAW: ${{ inputs.law }}
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ inputs.github_token }}
+        publish_dir: ${{ github.action_path }}/_site
+        force_orphan: true
