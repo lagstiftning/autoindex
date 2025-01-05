@@ -1,0 +1,30 @@
+
+<h1>
+  <span>
+    {{ name.en }}
+  </span>
+  <span>
+    Version {{ code }}, English Translation
+  </span>
+</h1>
+
+<table>
+  <tbody>
+    {% for element in elements %}
+      <tr>
+        <td>
+          {% if element.type == "section_heading" %}
+            <a href="{{ element.slug }}">
+              {{ element.text.sv }}
+            </a>
+          {% else %}
+            {{ element.text.sv }}
+          {% endif %}
+        </td>
+        <td>
+          {{ element.text.en }}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

@@ -1,0 +1,13 @@
+{
+  "name": "autoindex",
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@types/node": "^22.10.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "scripts": {
+    "start": "npx tsx ./node_modules/.bin/eleventy --config=eleventy.config.ts --serve"
+  },
+  "packageManager": "yarn@1.22.21+sha1.1959a18351b811cdeedbd484a8f86c3cc3bbaf72"
+}
