@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/tailwind.css" />
+    <title>{{ title }}</title>
+  </head>
+
+  <body class="flex flex-col items-center mb-[128px]">
+    {% include "header.njk" %}
+    <main class="flex flex-col px-4 lg:px-0 pt-8 max-w-5xl w-full">
+      {{ content | raw }}
+    </main>
+  </body>
+</html>

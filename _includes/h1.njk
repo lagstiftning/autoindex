@@ -1,0 +1,12 @@
+{% macro h1(text, subtext, classes) %}
+  <h1 class="flex flex-col text-lg md:text-3xl font-bold {{ classes }}">
+    <span class="font-normal md:font-extralight">
+      {{ text }}
+    </span>
+    {% if subtext %}
+      <span class="text-lg leading-1 align-top text-slate-500 font-light">
+        {{ subtext }}
+      </span>
+    {% endif %}
+  </h1>
+{% endmacro %}
