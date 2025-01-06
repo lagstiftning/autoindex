@@ -26,8 +26,14 @@ export default async function(eleventyConfig) {
         .filter(element => element.type === 'paragraph_text')
         .map(element => element.text.en).join(' ')
 
+      let title = section.text.en
+      if (section.chapter) {
+        title = `Chapter ${section.chapter} ${title}`
+      }
+
       return {
         ...section,
+        title,
         revision,
         elements,
         description,

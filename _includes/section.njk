@@ -1,7 +1,7 @@
 ---
 layout: blank
 eleventyComputed:
-  title: "{{ section.text.en }} of {{ section.revision.name.en }}"
+  title: "{{ section.title }} of {{ section.revision.name.en }}"
   description: "{{ section.description }}"
   breadcrumbs:
   - href: https://lagstiftning.github.io/
@@ -9,14 +9,14 @@ eleventyComputed:
   - href: "/{{ section.revision.code }}"
     text: "{{ section.revision.abbreviation }}"
   - href: "/{{ section.revision.code }}/{{ section.slug }}"
-    text: "{{ section.text.en }}"
+    text: "{{ section.title }}"
 ---
 
 {% from "_includes/elements.njk" import document_heading, chapter_heading, group_heading, section_heading, paragraph_text %}
 {% from "h1.njk" import h1 %}
 
 {{ h1(
-  section.text.en + " of " + section.revision.name.en,
+  section.title + " of " + section.revision.name.en,
   "Version " + section.revision.code + ", English Translation",
   "mb-1"
 ) }}
