@@ -22,10 +22,15 @@ export default async function(eleventyConfig) {
         elements.unshift(prevChapterOrGroupHeading)
       }
 
+      const description = elements
+        .filter(element => element.type === 'paragraph_text')
+        .map(element => element.text.en).join(' ')
+
       return {
         ...section,
         revision,
         elements,
+        description,
       }
     })
   })
