@@ -2,6 +2,11 @@
 layout: blank
 eleventyComputed:
   title: "{{ name.en }}"
+  breadcrumbs:
+    - href: https://lagstiftning.github.io/
+      text: 🏠
+    - href: "/{{ code }}"
+      text: "{{ abbreviation }}"
 ---
 
 {% from "_includes/elements.njk" import document_heading, chapter_heading, group_heading, section_heading_link, paragraph_text %}
