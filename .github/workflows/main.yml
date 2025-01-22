@@ -19,6 +19,8 @@ jobs:
           version: 10
 
       - run: pnpm build
+        env:
+          REPO_NAME: ${{ github.event.repository.name }}
 
       - uses: peaceiris/actions-gh-pages@v3
         with:
