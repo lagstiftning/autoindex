@@ -1,4 +1,3 @@
-import { Container } from "@arbetsmarknad/components/Container";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -6,9 +5,10 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@arbetsmarknad/components/Breadcrumb";
-
+import { Container } from "@arbetsmarknad/components/Container";
 import { HeaderMenu } from "@arbetsmarknad/components/HeaderMenu";
 import { Page } from "@arbetsmarknad/components/Page";
+import { TopLevelHeading } from "@arbetsmarknad/components/TopLevelHeading";
 
 export default function Home() {
   return (
@@ -30,9 +30,10 @@ export default function Home() {
           </BreadcrumbList>
         </Container>
       </Breadcrumb>
-      <main className="flex justify-center w-full py-4">
+      <main className="flex flex-col justify-center w-full py-4">
         <Container>
-          <h1>Arbetsmarknad Starter Project</h1>
+          <TopLevelHeading text="Arbetsmarknad Starter Project" />
+          <p>This is a starter project for Arbetsmarknad web content.</p>
         </Container>
       </main>
     </Page>
