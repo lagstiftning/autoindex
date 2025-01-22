@@ -30,8 +30,8 @@ export default function Home() {
           </BreadcrumbList>
         </Container>
       </Breadcrumb>
-      <main className="flex flex-col justify-center w-full py-4">
-        <Container>
+      <main className="flex flex-col items-center w-full py-4">
+        <Container className="flex flex-col items-start space-y-4">
           <TopLevelHeading text="Arbetsmarknad Starter Project" />
           <p>This is a starter project for Arbetsmarknad web content.</p>
         </Container>
