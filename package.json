@@ -5,6 +5,7 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@arbetsmarknad/components": "^0.0.7",
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "0.0.0-development.1",
     "@types/node": "^20",

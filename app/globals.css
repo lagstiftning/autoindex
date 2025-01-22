@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "@arbetsmarknad/components/dist.css";
 
 :root {
   --background: #ffffff;
