@@ -1,0 +1,32 @@
+name: "AutoIndex Swedish Legislation"
+description: "Automatically update an HTML index of a Swedish law"
+inputs:
+  github_token:
+    description: "The GitHub token to use for deployment."
+    required: true
+  law:
+    description: "The name of the law repository being indexed."
+    required: true
+outputs: {}
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v4
+
+    - uses: pnpm/action-setup@v4
+      with:
+        run_install: true
+        version: 10
+
+    - run: pnpm build
+      shell: bash
+      env:
+        NEXT_PUBLIC_BASE_PATH: "/${{ inputs.law }}"
+        SOURCE_DIRECTORY_PATH: ${{ github.workspace }}
+        TARGET_DIRECTORY_PATH: ${{ github.action_path }}
+
+    - uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ inputs.github_token }}
+        publish_dir: ${{ github.action_path }}/out
+        force_orphan: true
