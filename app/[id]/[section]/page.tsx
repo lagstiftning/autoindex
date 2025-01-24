@@ -145,13 +145,19 @@ export default async function Section(props: SectionProps) {
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink href={`/${revision.code}`}>
+              <BreadcrumbLink
+                href={`${process.env.NEXT_PUBLIC_BASE_PATH}/${revision.code}`}
+              >
                 {revision.abbreviation}
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink href={`/${revision.code}/${section!.slug}`}>
+              <BreadcrumbLink
+                href={`${process.env.NEXT_PUBLIC_BASE_PATH}/${revision.code}/${
+                  section!.slug
+                }`}
+              >
                 {shortTitle}
               </BreadcrumbLink>
             </BreadcrumbItem>
