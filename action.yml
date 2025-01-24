@@ -14,6 +14,7 @@ runs:
     - uses: actions/checkout@v4
 
     - uses: pnpm/action-setup@v4
+      working-directory: ${{ github.action_path }}
       with:
         run_install: true
         version: 10
