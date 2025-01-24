@@ -69,8 +69,8 @@ export default async function Revision(props: RevisionProps) {
   return (
     <Page>
       <HeaderMenu
-        href="https://arbetsmarknad.github.io"
-        text="arbetsmarknad.github.io"
+        href="https://lagstiftning.github.io"
+        text="lagstiftning.github.io"
       />
       <Breadcrumb className="py-4 w-full flex justify-center">
         <Container>
