@@ -129,7 +129,7 @@ export default async function Revision(props: RevisionProps) {
                     type={element.type}
                     href={
                       element.type === "section_heading"
-                        ? `${process.env.NEXT_PUBLIC_BASE_PATH}/${id}/${element.slug}`
+                        ? `/${process.env.NEXT_PUBLIC_LAW}/${id}/${element.slug}`
                         : undefined
                     }
                     asChild={element.type === "paragraph_text"}
