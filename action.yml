@@ -26,7 +26,7 @@ runs:
       shell: bash
       working-directory: ${{ github.action_path }}
       env:
-        NEXT_PUBLIC_BASE_PATH: "/${{ inputs.law }}"
+        NEXT_PUBLIC_LAW: "${{ inputs.law }}"
         SOURCE_DIRECTORY_PATH: ${{ github.workspace }}
         TARGET_DIRECTORY_PATH: ${{ github.action_path }}
 
