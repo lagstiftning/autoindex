@@ -14,6 +14,8 @@ import {
   LegislationTableCell,
   LegislationTableRow,
 } from "@arbetsmarknad/components/LegislationTable";
+import { Footer } from "@arbetsmarknad/components/Footer";
+import { Main } from "@arbetsmarknad/components/Main";
 import { Page } from "@arbetsmarknad/components/Page";
 import { TopLevelHeading } from "@arbetsmarknad/components/TopLevelHeading";
 import { loadRevision } from "@/lib/revision";
@@ -44,12 +46,12 @@ export async function generateStaticParams(): Promise<RevisionParams[]> {
 }
 
 export async function generateMetadata(
-  props: RevisionProps
+  props: RevisionProps,
 ): Promise<Metadata> {
   const params = await props.params;
   const id = decodeURIComponent(params.id);
   const revision = await loadRevision(
-    path.join(sourceDirectoryPath, `${id}.yaml`)
+    path.join(sourceDirectoryPath, `${id}.yaml`),
   );
   const title = revision.name.en;
   const description = `Version ${revision.code}, English Translation`;
@@ -63,7 +65,7 @@ export default async function Revision(props: RevisionProps) {
   const params = await props.params;
   const id = decodeURIComponent(params.id);
   const revision = await loadRevision(
-    path.join(sourceDirectoryPath, `${id}.yaml`)
+    path.join(sourceDirectoryPath, `${id}.yaml`),
   );
 
   return (
@@ -72,30 +74,28 @@ export default async function Revision(props: RevisionProps) {
         href="https://lagstiftning.github.io"
         text="lagstiftning.github.io"
       />
-      <Breadcrumb className="py-4 w-full flex justify-center">
-        <Container>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="https://arbetsmarknad.github.io/">
-                Arbetsmarknad
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/">Lagstiftning</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink
-                href={`${process.env.NEXT_PUBLIC_BASE_PATH}/${revision.code}`}
-              >
-                {revision.abbreviation}
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Container>
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="https://arbetsmarknad.github.io/">
+              Arbetsmarknad
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">Lagstiftning</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink
+              href={`/${process.env.NEXT_PUBLIC_LAW}/${revision.code}`}
+            >
+              {revision.abbreviation}
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+        </BreadcrumbList>
       </Breadcrumb>
-      <main className="flex flex-col items-center w-full py-4">
+      <Main>
         <Container className="flex flex-col items-start space-y-12">
           <TopLevelHeading
             text={revision.name.en}
@@ -111,7 +111,7 @@ export default async function Revision(props: RevisionProps) {
                     type={element.type}
                     href={
                       element.type === "section_heading"
-                        ? `${process.env.NEXT_PUBLIC_BASE_PATH}/${id}/${element.slug}`
+                        ? `/${process.env.NEXT_PUBLIC_LAW}/${id}/${element.slug}`
                         : undefined
                     }
                     asChild={element.type === "paragraph_text"}
@@ -147,7 +147,14 @@ export default async function Revision(props: RevisionProps) {
             </tbody>
           </LegislationTable>
         </Container>
-      </main>
+      </Main>
+      <Footer
+        sourceCode={[
+          `lagstiftning/${process.env.NEXT_PUBLIC_LAW}`,
+          "lagstiftning/autoindex",
+          "arbetsmarknad/components",
+        ]}
+      />
     </Page>
   );
 }
