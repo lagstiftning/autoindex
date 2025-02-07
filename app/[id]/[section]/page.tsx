@@ -1,23 +1,14 @@
 import { Metadata } from "next";
 import { promises as fs } from "fs";
 import path from "path";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbSeparator,
-} from "@arbetsmarknad/components/Breadcrumb";
+import { Breadcrumbs } from "@arbetsmarknad/components/Breadcrumb";
 import { Container } from "@arbetsmarknad/components/Container";
-import { HeaderMenu } from "@arbetsmarknad/components/HeaderMenu";
 import {
   LegislationTable,
   LegislationTableCell,
   LegislationTableRow,
 } from "@arbetsmarknad/components/LegislationTable";
-import { Footer } from "@arbetsmarknad/components/Footer";
 import { Main } from "@arbetsmarknad/components/Main";
-import { Page } from "@arbetsmarknad/components/Page";
 import { TopLevelHeading } from "@arbetsmarknad/components/TopLevelHeading";
 import { loadRevision } from "@/lib/revision";
 
@@ -128,42 +119,16 @@ export default async function Section(props: SectionProps) {
     : `${section!.text.en}`;
 
   return (
-    <Page>
-      <HeaderMenu
-        href="https://lagstiftning.github.io"
-        text="lagstiftning.github.io"
-      />
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="https://arbetsmarknad.github.io/">
-              Arbetsmarknad
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/">Lagstiftning</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink
-              href={`/${process.env.NEXT_PUBLIC_LAW}/${revision.code}`}
-            >
-              {revision.abbreviation}
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink
-              href={`/${process.env.NEXT_PUBLIC_LAW}/${revision.code}/${
-                section!.slug
-              }`}
-            >
-              {shortTitle}
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+    <>
+      <Breadcrumbs>
+        {{
+          "https://arbetsmarknad.github.io/": "Arbetsmarknad",
+          "/": "Lagstiftning",
+          [`/${process.env.NEXT_PUBLIC_LAW}/${revision.code}`]: `${revision.abbreviation}`,
+          [`/${process.env.NEXT_PUBLIC_LAW}/${revision.code}/${section!.slug}`]:
+            shortTitle,
+        }}
+      </Breadcrumbs>
       <Main>
         <Container className="flex flex-col items-start space-y-12">
           <TopLevelHeading
@@ -190,13 +155,6 @@ export default async function Section(props: SectionProps) {
           </LegislationTable>
         </Container>
       </Main>
-      <Footer
-        sourceCode={[
-          `lagstiftning/${process.env.NEXT_PUBLIC_LAW}`,
-          "lagstiftning/autoindex",
-          "arbetsmarknad/components",
-        ]}
-      />
-    </Page>
+    </>
   );
 }
