@@ -1,7 +1,7 @@
-# starter
+# autoindex
 
-Web starter project.
+Generates a HTML index based on structured data about a Swedish law
 
 ## License
 
-[MIT](https://github.com/arbetsmarknad/starter/blob/main/license)
+[MIT](https://github.com/lagstiftning/autoindex/blob/main/license)
