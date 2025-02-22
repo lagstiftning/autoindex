@@ -4,4 +4,4 @@ Generates a HTML index based on structured data about a Swedish law
 
 ## License
 
-[MIT](https://github.com/lagstiftning/autoindex/blob/main/license)
+[MIT](https://codeberg.org/lagstiftning/autoindex/src/branch/main/license)
