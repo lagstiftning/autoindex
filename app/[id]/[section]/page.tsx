@@ -122,7 +122,7 @@ export default async function Section(props: SectionProps) {
     <>
       <Breadcrumbs>
         {{
-          "https://arbetsmarknad.github.io/": "Arbetsmarknad",
+          "https://arbetsmarknad.codeberg.page/": "Arbetsmarknad",
           "/": "Lagstiftning",
           [`/${process.env.NEXT_PUBLIC_LAW}/${revision.code}`]: `${revision.abbreviation}`,
           [`/${process.env.NEXT_PUBLIC_LAW}/${revision.code}/${section!.slug}`]:

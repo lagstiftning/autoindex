@@ -40,11 +40,11 @@ export default function RootLayout({
           <Footer
             sourceCode={[
               `lagstiftning/${process.env.NEXT_PUBLIC_LAW}`,
-              "lagstiftning/lagstiftning.github.io",
+              "lagstiftning/autoindex",
               "arbetsmarknad/components",
             ]}
           />
-        </Page>{" "}
+        </Page>
       </body>
     </html>
   );
