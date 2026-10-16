@@ -14,6 +14,7 @@ import { Metadata } from "next";
 
 const sourceDirectoryPath = process.env.SOURCE_DIRECTORY_PATH || ".";
 
+
 type RevisionParams = {
   id: string;
 };
@@ -63,7 +64,7 @@ export default async function Revision(props: RevisionProps) {
     <>
       <Breadcrumbs>
         {{
-          "https://arbetsmarknad.codeberg.page/": "Arbetsmarknad",
+          "https://arbetsmarknad.github.io/": "Arbetsmarknad",
           "/": "Lagstiftning",
           [`/${process.env.NEXT_PUBLIC_LAW}/${revision.code}`]: `${revision.abbreviation}`,
         }}
