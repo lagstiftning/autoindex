@@ -27,12 +27,12 @@ importers:
         specifier: ^2.6.0
         version: 2.6.0
     devDependencies:
-      '@arbetsmarknad/components':
-        specifier: ^1.4.0
-        version: 1.4.0(@types/react@19.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(recharts@2.15.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(tailwindcss@4.0.0)(typescript@5.7.3)
       '@eslint/eslintrc':
         specifier: ^3
         version: 3.2.0(supports-color@7.2.0)
+      '@svenskamodellen/components':
+        specifier: ^1.4.0
+        version: 1.5.0(@types/react@19.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(recharts@2.15.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(tailwindcss@4.0.0)(typescript@5.7.3)
       '@tailwindcss/postcss':
         specifier: ^4.0.0
         version: 4.0.0
@@ -93,15 +93,6 @@ packages:
   '@alloc/quick-lru@5.2.0':
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
     engines: {node: '>=10'}
-
-  '@arbetsmarknad/components@1.4.0':
-    resolution: {integrity: sha512-a2TztqPD8LsxILcu691p7nxYSWNVZTF7ojbyetL2yJd1sMQbDKG1K9a6fIL26gfXbzagG5r51UWQaRSN34RLGg==}
-    peerDependencies:
-      react: ^19.0.0
-      react-dom: ^19.0.0
-      recharts: ^2.15.1
-      tailwindcss: ^4.0.0
-      typescript: ^5.7.3
 
   '@babel/code-frame@7.29.7':
     resolution: {integrity: sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw==}
@@ -519,6 +510,15 @@ packages:
 
   '@rtsao/scc@1.1.0':
     resolution: {integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==}
+
+  '@svenskamodellen/components@1.5.0':
+    resolution: {integrity: sha512-4clA+6irqFQa2MpRxSXNsSFEROsDdd/5p6cvtYWZ6zu9v0SiFGu6+5Fyuzi8sjGD8lSokOKuFNk21Z+HLKuAIA==}
+    peerDependencies:
+      react: ^19.0.0
+      react-dom: ^19.0.0
+      recharts: ^2.15.1
+      tailwindcss: ^4.0.0
+      typescript: ^5.7.3
 
   '@swc/helpers@0.5.23':
     resolution: {integrity: sha512-5lSsMOTXURePglDfvuAQUqkGek9Hg2kksOYay2m0+XR++b2NWYL/4sWyuvVBIs8oKnJaxkdi9whaL/sqN13afw==}
@@ -2350,22 +2350,6 @@ snapshots:
 
   '@alloc/quick-lru@5.2.0': {}
 
-  '@arbetsmarknad/components@1.4.0(@types/react@19.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(recharts@2.15.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(tailwindcss@4.0.0)(typescript@5.7.3)':
-    dependencies:
-      '@radix-ui/react-slot': 1.1.2(@types/react@19.0.7)(react@19.0.0)
-      class-variance-authority: 0.7.1
-      clsx: 2.1.1
-      lucide-react: 0.473.0(react@19.0.0)
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
-      recharts: 2.15.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      tailwind-merge: 2.6.0
-      tailwindcss: 4.0.0
-      tailwindcss-animate: 1.0.7(tailwindcss@4.0.0)
-      typescript: 5.7.3
-    transitivePeerDependencies:
-      - '@types/react'
-
   '@babel/code-frame@7.29.7':
     dependencies:
       '@babel/helper-validator-identifier': 7.29.7
@@ -2729,6 +2713,22 @@ snapshots:
       '@types/react': 19.0.7
 
   '@rtsao/scc@1.1.0': {}
+
+  '@svenskamodellen/components@1.5.0(@types/react@19.0.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(recharts@2.15.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(tailwindcss@4.0.0)(typescript@5.7.3)':
+    dependencies:
+      '@radix-ui/react-slot': 1.1.2(@types/react@19.0.7)(react@19.0.0)
+      class-variance-authority: 0.7.1
+      clsx: 2.1.1
+      lucide-react: 0.473.0(react@19.0.0)
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+      recharts: 2.15.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      tailwind-merge: 2.6.0
+      tailwindcss: 4.0.0
+      tailwindcss-animate: 1.0.7(tailwindcss@4.0.0)
+      typescript: 5.7.3
+    transitivePeerDependencies:
+      - '@types/react'
 
   '@swc/helpers@0.5.23':
     dependencies:

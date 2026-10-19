@@ -1,15 +1,15 @@
 import { Metadata } from "next";
 import { promises as fs } from "fs";
 import path from "path";
-import { Breadcrumbs } from "@arbetsmarknad/components/Breadcrumb";
-import { Container } from "@arbetsmarknad/components/Container";
+import { Breadcrumbs } from "@svenskamodellen/components/Breadcrumb";
+import { Container } from "@svenskamodellen/components/Container";
 import {
   LegislationTable,
   LegislationTableCell,
   LegislationTableRow,
 } from "@/components/LegislationTable";
-import { Main } from "@arbetsmarknad/components/Main";
-import { TopLevelHeading } from "@arbetsmarknad/components/TopLevelHeading";
+import { Main } from "@svenskamodellen/components/Main";
+import { TopLevelHeading } from "@svenskamodellen/components/TopLevelHeading";
 import { loadRevision } from "@/lib/revision";
 
 const sourceDirectoryPath = process.env.SOURCE_DIRECTORY_PATH || ".";
@@ -123,7 +123,7 @@ export default async function Section(props: SectionProps) {
     <>
       <Breadcrumbs>
         {{
-          "https://arbetsmarknad.github.io/": "Arbetsmarknad",
+          "https://svenskamodellen.github.io/": "Svenska modellen",
           "/": "Lagstiftning",
           [`/${process.env.NEXT_PUBLIC_LAW}/${revision.code}`]: `${revision.abbreviation}`,
           [`/${process.env.NEXT_PUBLIC_LAW}/${revision.code}/${section!.slug}`]:

@@ -1,14 +1,14 @@
 import { promises as fs } from "fs";
 import path from "path";
-import { Breadcrumbs } from "@arbetsmarknad/components/Breadcrumb";
-import { Container } from "@arbetsmarknad/components/Container";
+import { Breadcrumbs } from "@svenskamodellen/components/Breadcrumb";
+import { Container } from "@svenskamodellen/components/Container";
 import {
   LegislationTable,
   LegislationTableCell,
   LegislationTableRow,
 } from "@/components/LegislationTable";
-import { Main } from "@arbetsmarknad/components/Main";
-import { TopLevelHeading } from "@arbetsmarknad/components/TopLevelHeading";
+import { Main } from "@svenskamodellen/components/Main";
+import { TopLevelHeading } from "@svenskamodellen/components/TopLevelHeading";
 import { loadRevision } from "@/lib/revision";
 import { Metadata } from "next";
 
@@ -64,7 +64,7 @@ export default async function Revision(props: RevisionProps) {
     <>
       <Breadcrumbs>
         {{
-          "https://arbetsmarknad.github.io/": "Arbetsmarknad",
+          "https://svenskamodellen.github.io/": "Svenska modellen",
           "/": "Lagstiftning",
           [`/${process.env.NEXT_PUBLIC_LAW}/${revision.code}`]: `${revision.abbreviation}`,
         }}
