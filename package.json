@@ -36,10 +36,11 @@
     }
   },
   "scripts": {
-    "build": "next build",
-    "dev": "next dev",
+    "build": "NEXT_PUBLIC_LAW=$LAW NEXT_PUBLIC_DEPLOYMENT_URL=https://lagstiftning.github.io/$LAW SOURCE_DIRECTORY_PATH=../lagstiftning-$LAW next build",
+    "deploy": "npx gh-pages --nojekyll --no-history --branch gh-pages -d out --repo git@github.com:lagstiftning/$LAW.git",
+    "dev": "NEXT_PUBLIC_LAW=$LAW NEXT_PUBLIC_DEPLOYMENT_URL=https://lagstiftning.github.io/$LAW SOURCE_DIRECTORY_PATH=../lagstiftning-$LAW next dev",
     "lint": "next lint",
-    "ship": "NEXT_PUBLIC_LAW=$LAW SOURCE_DIRECTORY_PATH=../$LAW pnpm build && npx gh-pages --nojekyll --no-history --branch gh-pages -d out --repo git@github.com:lagstiftning/$LAW.git",
+    "ship": "pnpm build && pnpm deploy",
     "start": "next start"
   },
   "version": "0.1.0"
