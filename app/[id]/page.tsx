@@ -6,7 +6,7 @@ import {
   LegislationTable,
   LegislationTableCell,
   LegislationTableRow,
-} from "@arbetsmarknad/components/LegislationTable";
+} from "@/components/LegislationTable";
 import { Main } from "@arbetsmarknad/components/Main";
 import { TopLevelHeading } from "@arbetsmarknad/components/TopLevelHeading";
 import { loadRevision } from "@/lib/revision";
