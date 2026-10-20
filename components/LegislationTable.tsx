@@ -57,17 +57,22 @@ export const LegislationTableCell: FC<LegislationTableCellProps> = ({
   return (
     <Component
       className={cn(
-        "max-w-[50%] overflow-hidden",
+        "max-w-[50%] overflow-hidden break-all lg:break-normal md:break-words",
         {
           "pr-1 md:pr-4": side === "left",
           "pl-1 md:pl-4": side === "right",
+          "font-serif":
+            type === "document_heading" ||
+            type === "group_heading" ||
+            type === "chapter_heading" ||
+            type === "section_heading",
           "text-base lg:text-2xl font-normal align-top":
             type === "document_heading",
           "text-base lg:text-xl font-bold py-4 align-top text-ellipsis":
             type === "group_heading" || type === "chapter_heading",
-          "text-base lg:text-xl font-bold pt-4 align-top":
+          "text-base lg:text-3xl font-bold pt-4 align-top":
             type === "section_heading",
-          "text-xs md:text-base lg:text-lg py-4 align-top":
+          "font-lilex text-xs lg:text-base py-4 align-top tracking-tighter md:tracking-normal":
             type === "paragraph_text",
         },
         className,

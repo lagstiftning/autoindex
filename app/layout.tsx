@@ -32,10 +32,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Page>
-          <HeaderMenu
-            canonicalUrl={deploymentUrl}
-            deploymentUrl={deploymentUrl}
-          />
           {children}
           <Footer
             sourceCode={[
