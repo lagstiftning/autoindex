@@ -22,13 +22,19 @@ export type LegislationTableRowProps = {
     | ReactElement<LegislationTableCellProps>
     | ReactElement<LegislationTableCellProps>[];
   className?: string;
+  id?: string;
 };
 
 export const LegislationTableRow: FC<LegislationTableRowProps> = ({
   children,
   className,
+  id,
 }) => {
-  return <tr className={cn("", className)}>{children}</tr>;
+  return (
+    <tr className={cn("", className)} id={id}>
+      {children}
+    </tr>
+  );
 };
 
 export type LegislationTableCellProps = {
@@ -43,6 +49,7 @@ export type LegislationTableCellProps = {
     | "chapter_heading"
     | "section_heading"
     | "paragraph_text";
+  index: number;
 };
 
 export const LegislationTableCell: FC<LegislationTableCellProps> = ({
@@ -52,27 +59,27 @@ export const LegislationTableCell: FC<LegislationTableCellProps> = ({
   href,
   side,
   type,
+  index,
 }) => {
   const Component = asChild ? Slot : "td";
   return (
     <Component
       className={cn(
-        "max-w-[50%] overflow-hidden break-all lg:break-normal md:break-words",
+        "max-w-[50%] overflow-hidden hyphens-auto [overflow-wrap:anywhere] lg:[overflow-wrap:normal]",
         {
           "pr-1 md:pr-4": side === "left",
           "pl-1 md:pl-4": side === "right",
-          "font-serif":
-            type === "document_heading" ||
-            type === "group_heading" ||
-            type === "chapter_heading" ||
-            type === "section_heading",
-          "text-base lg:text-2xl font-normal align-top":
+          "pt-8": index > 0,
+          // "font-serif":
+          //   type === "document_heading" ||
+          //   type === "group_heading" ||
+          //   type === "chapter_heading" ||
+          //   type === "section_heading",
+          "body-text align-top":
             type === "document_heading",
-          "text-base lg:text-xl font-bold py-4 align-top text-ellipsis":
-            type === "group_heading" || type === "chapter_heading",
-          "text-base lg:text-3xl font-bold pt-4 align-top":
-            type === "section_heading",
-          "font-lilex text-xs lg:text-base py-4 align-top tracking-tighter md:tracking-normal":
+          "section-heading align-top":
+            type === "section_heading" || type === "group_heading" || type === "chapter_heading",
+          "font-lilex text-xs sm:text-base align-top tracking-tighter md:tracking-normal":
             type === "paragraph_text",
         },
         className,

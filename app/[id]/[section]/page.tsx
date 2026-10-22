@@ -131,19 +131,20 @@ export default async function Section(props: SectionProps) {
         }}
       </Breadcrumbs>
       <Main>
-        <Container className="flex flex-col items-start space-y-12">
+        <Container className="flex flex-col items-start space-y-8">
           <TopLevelHeading
-            text={`${section!.text.en} of ${revision.name.en}`}
+            text={`${shortTitle} of ${revision.name.en}`}
             subtext={`Version ${revision.code}, English Translation`}
           />
           <LegislationTable>
             <tbody>
               {elements.map((element, i) => (
                 <LegislationTableRow key={`element-${i}`}>
-                  <LegislationTableCell side="left" type={element.type} asChild>
+                  <LegislationTableCell index={i} side="left" type={element.type} asChild>
                     <td dangerouslySetInnerHTML={{ __html: element.text.sv }} />
                   </LegislationTableCell>
                   <LegislationTableCell
+                    index={i}
                     side="right"
                     type={element.type}
                     asChild

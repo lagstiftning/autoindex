@@ -24,7 +24,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const deploymentUrl = process.env.NEXT_PUBLIC_DEPLOYMENT_URL!;
   return (
     <html lang="en">
       <body
