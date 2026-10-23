@@ -64,6 +64,7 @@ export const LegislationTableCell: FC<LegislationTableCellProps> = ({
   const Component = asChild ? Slot : "td";
   return (
     <Component
+      lang={side === "left" ? "sv" : "en"}
       className={cn(
         "max-w-[50%] overflow-hidden hyphens-auto [overflow-wrap:anywhere] lg:[overflow-wrap:normal]",
         {
