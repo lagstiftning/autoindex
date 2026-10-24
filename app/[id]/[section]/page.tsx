@@ -136,6 +136,15 @@ export default async function Section(props: SectionProps) {
             text={`${shortTitle} of ${revision.name.en}`}
             subtext={`Version ${revision.code}, English Translation`}
           />
+          {section!.editorial_preamble && (
+            <div
+              lang="en"
+              className="max-w-prose body-text"
+              dangerouslySetInnerHTML={{
+                __html: section!.editorial_preamble,
+              }}
+            />
+          )}
           <LegislationTable>
             <tbody>
               {elements.map((element, i) => (
