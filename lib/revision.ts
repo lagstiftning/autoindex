@@ -113,6 +113,23 @@ function addTailwindClasses(
       };
       const firstParagraphIndex = blockquote.children.indexOf(firstParagraph);
       blockquote.children.splice(firstParagraphIndex, 0, labelParagraph);
+      blockquote.children.forEach((child, index) => {
+        if (
+          index > firstParagraphIndex &&
+          child.type === "element" &&
+          child.tagName === "p"
+        ) {
+          child.properties = {
+            ...(child.properties || {}),
+            className: [
+              ...(Array.isArray(child.properties?.className)
+                ? child.properties.className
+                : []),
+              "mt-4",
+            ],
+          };
+        }
+      });
       blockquote.properties = {
         ...(blockquote.properties || {}),
         className: [
